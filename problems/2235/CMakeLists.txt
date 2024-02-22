@@ -1,1 +1,1 @@
-add_executable(test-2235 solution.cpp test.cpp)
+add_executable(test-2235 test.cpp)
