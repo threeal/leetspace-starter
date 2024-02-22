@@ -17,3 +17,6 @@ jobs:
         with:
           run-build: true
           generator: Ninja
+
+      - name: Run Tests
+        uses: threeal/ctest-action@main
