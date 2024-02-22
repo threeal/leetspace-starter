@@ -7,14 +7,16 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ${{ matrix.os }}-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [Windows, Ubuntu, macOS]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # Add steps here to build and test your project.
-      # Learn more: https://docs.github.com/en/actions/automating-builds-and-tests
+      - name: Configure and Build
+        uses: threeal/cmake-action@v1.3.0
+        with:
+          run-build: true
+          generator: Ninja
+
+      - name: Run Tests
+        uses: threeal/ctest-action@main
