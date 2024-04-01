@@ -5,18 +5,12 @@ on:
   push:
     branches: [main]
 jobs:
-  build:
-    name: Build
+  Test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.2
 
-      - name: Configure and Build
-        uses: threeal/cmake-action@v1.3.0
-        with:
-          run-build: true
-          generator: Ninja
-
-      - name: Run Tests
-        uses: threeal/ctest-action@main
+      - name: Test Solutions
+        run: npx --yes leettest
